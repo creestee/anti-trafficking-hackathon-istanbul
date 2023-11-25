@@ -1,0 +1,11 @@
+export const VISIBILITY = 0;
+export const QUANTITY = 1;
+export const MONEY = 2;
+export const INFLUENCE = 3;
+export const MIN_MAX_ICON_VALUE = 15;
+export const DIRECTION_LEFT = 2;
+export const DIRECTION_RIGHT = 4;
+export const MAX_OLD_CARDS = 15;
+export const ICON_SIZE =
+    document.documentElement.clientWidth >= 500
+    && document.documentElement.clientHeight >= 900 ? 60 : 40;

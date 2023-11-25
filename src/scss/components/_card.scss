@@ -1,0 +1,137 @@
+.card {
+	background: $color-cream;
+	color: $color-dark-grey;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 5px 10px 0;
+	text-align: center;
+
+	@include small-desktop {
+		padding: 5px 30px 0;
+		display: block;
+	}
+
+	&__description {
+		flex-grow: 1;		
+		height: 100px;
+		line-height: 100px;
+
+		@include desktop {
+			font-size: 25px;
+		}
+	}
+
+	&__descriptionText {
+		display: inline-block;
+		font-size: 18px;
+		line-height: 1.25;
+		opacity: 1;
+		transition: opacity 200ms linear;
+		vertical-align: middle;
+
+		@include desktop {
+			font-size: 18px;
+		}
+
+		&--isSwiped {
+			opacity: 0;
+		}
+	}
+
+	&__background {
+		background: url('../../assets/images/cardBackground.png') repeat;
+		border-radius: 10px;
+		height: auto;
+		margin: 0 auto 20px;
+		width: 75%;
+
+		@include desktop {
+			width: 100%;
+		}
+	}
+
+	&__imageContainer {
+		background-color: $color-green;
+		border-radius: 10px;
+		position: relative;
+		transform: translate(0) rotateZ(0);
+		transition: 200ms;
+
+		&--panLeft {
+			transform: translate(-50px) rotateZ(-10deg);
+			transition: 500ms;
+
+			.card__noText {
+				display: block;
+			}
+		}
+
+		&--panRight {
+			transform: translate(50px) rotateZ(10deg);
+			transition: 500ms;
+
+			.card__yesText {
+				display: block;
+			}
+		}
+
+		&--isSwiped {
+			animation: spin 1500ms linear infinite;
+		}
+
+		&--isGameOver {
+			background-color: $color-black;
+		}
+	}
+
+	&__image {
+		pointer-events: none;
+		width: 80%;
+	}
+
+	&__name {
+		flex-grow: 1;
+		font-size: 18px;
+		line-height: 30px;
+		padding-bottom: 18px;
+		opacity: 1;
+		transition: opacity 200ms linear;
+
+		&--isSwiped {
+			opacity: 0;
+		}
+	}
+
+	&__yesText,
+	&__noText {
+		background-color: rgba($color-black, 0.6);
+		border-radius: 10px 10px 0 0;
+		color: $color-white;
+		display: none;
+		font-size: 24px;
+		font-weight: bold;
+		padding: 20px;
+		position: absolute;
+		text-align: left;
+		top: 0;
+		width: calc(100% - 40px);
+
+		@include desktop {
+			font-size: 32px;
+		}
+	}
+
+	&__yesText {
+		text-align: right;
+	}
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(360deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}

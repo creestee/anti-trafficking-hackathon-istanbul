@@ -1,0 +1,9 @@
+.info {
+	background-color: $color-blue;
+	color: $color-light-brown;
+	padding: 20px;
+
+	&__name {
+		margin-bottom: 10px;
+	}
+}
